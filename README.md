@@ -55,7 +55,6 @@ guide.all <- getGuide(guide_id)
 ```r
 url <- "http://www.wodnews.com"
 scores <- checkGuide(guide_id, url)
-print(scores)
 ```
 
 ## Thanks to

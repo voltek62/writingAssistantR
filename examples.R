@@ -22,7 +22,7 @@ guide <- createGuide("crossfit","fr_fr","premium")
 guide_id <- guide$guide_id
 
 while(getGuide(guide_id)=="error") {
-  print("guide en cours de creation.")
+  print("Your guide is currently being created.")
   Sys.sleep(40)
 }
 
@@ -44,31 +44,21 @@ query <- URLencode("crossfit france")
 
 page <- paste("https://www.google.fr/search?num=100&espv=2&btnG=Rechercher&q=",query,"&start=0", sep = "")
 
-#On importe la page de requête sur Google
 webpage <- read_html(page)
-
-
-#On extrait les balises A pour chaque résultat google
 googleTitle <- html_nodes(webpage, "h3 a")
-
 googleTitleText <- html_text(googleTitle)
-
-#On extrait les liens
+#Extract all links
 hrefgoogleTitleLink <- html_attr(googleTitle, "href")
-
-#On nettoie
 googleTitleLink <- str_replace_all(hrefgoogleTitleLink, "/url\\?q=|&sa=(.*)","")
 
 library(dplyr)
 DF <- data.frame(Title=googleTitleText, Link=googleTitleLink, score=0, danger = 0, stringsAsFactors = FALSE) %>%
         filter(grepl("http",Link))
 
-
-#
-for (i in 12:nrow(DF)) {
+for (i in 1:nrow(DF)) {
   link <- DF[i,]$Link
 
-  scores <- checkGuide(28134,link)
+  scores <- checkGuide(guide_id,link)
 
   if (scores!="error") {
     DF[i,]$score  <- scores$score

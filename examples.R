@@ -62,11 +62,18 @@ googleTitleLink <- str_replace_all(hrefgoogleTitleLink, "/url\\?q=|&sa=(.*)","")
 library(dplyr)
 DF <- data.frame(Title=googleTitleText, Link=googleTitleLink, score=0, danger = 0, stringsAsFactors = FALSE) %>%
         filter(grepl("http",Link))
+
+
 #
-for (i in 1:nrow(DF)) {
+for (i in 12:nrow(DF)) {
   link <- DF[i,]$Link
+
   scores <- checkGuide(28134,link)
-  DF[i,]$score <- scores$score
-  DF[i,]$danger <- scores$danger
-  Sys.sleep(4)
+
+  if (scores!="error") {
+    DF[i,]$score  <- scores$score
+    DF[i,]$danger <- scores$danger
+  }
+
+  finally = Sys.sleep(60)
 }

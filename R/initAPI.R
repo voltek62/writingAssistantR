@@ -12,14 +12,26 @@ initAPI <- function() {
   path <- getwd()
   # if test
   path <- gsub("/tests/testthat","",path, fixed=TRUE)
+  path <- paste0(path,"/ytg_configuration.txt")
 
-  tab <- read.delim(paste0(path,"/ytg_configuration.txt"), header=FALSE, sep="=", stringsAsFactors = FALSE, strip.white=FALSE)
+  if(!file.exists(path)){
+
+    print("Please, set your API Key in the file ytg_configuration.txt")
+
+    fileConn<-file(path)
+    writeLines(c("key = ","debug = FALSE"), fileConn)
+    close(fileConn)
+
+    return("error")
+  }
+
+  tab <- read.delim(path, header=FALSE, sep="=", stringsAsFactors = FALSE, strip.white=FALSE)
 
   if (!exists("tab")) {
 
     print("Please, set your API Key in the file ytg_configuration.txt")
 
-    fileConn<-file(paste0(path,"/ytg_configuration.txt"))
+    fileConn<-file(path)
     writeLines(c("key = ","debug = FALSE"), fileConn)
     close(fileConn)
 

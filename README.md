@@ -4,7 +4,7 @@
 
 A Premium Guide is THE list of the most important words of your content targeting a specific query. No need to make extensive literature search, they reversed engineered search engines algorithms in order to speed up your writing process.
 
-> See all documentation on the [writing Assitant website](https://github.com/writingAssistantR) and [data-seo website](https://data-seo.fr)
+> See all documentation on [data-seo.com](https://data-seo.com/2018/08/03/how-to-use-yourtext-guru-r/) or [data-seo.fr](https://data-seo.fr/2018/08/02/utiliser-yourtext-guru-r/)
 
 ## Install
 

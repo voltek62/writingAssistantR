@@ -1,5 +1,5 @@
 
-context("api")
+context("yourtext.guru")
 
 test_that("The Key API is ok", {
   expect_equal(initAPI(), "ok")

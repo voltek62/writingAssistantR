@@ -1,5 +1,8 @@
 #' List the lexies and optimum occurence count for an expression of a metamot batch
 #'
+#' @param metamot_id The batch id
+#' @param lexie_id The expression to simulate
+#'
 #' @details
 #'
 #' ResCode
@@ -9,12 +12,16 @@
 #'
 #' @examples
 #' \dontrun{
-#' status <- listSimulatedLexies(metamot_id,lexie_id)
+#' lexies <- listSimulatedLexies(metamot_id,"test")
 #' }
 #' @return a json with lexies occurences for several text sizes.
 #' @author Vincent Terrasi
 #' @export
 listSimulatedLexies <- function(metamot_id,lexie_id) {
+
+  token <- getOption('sme_token')
+  debug <- getOption('sme_debug')
+
   curl <- getCurlHandle()
 
   # il faut passer Bearer
@@ -27,7 +34,7 @@ listSimulatedLexies <- function(metamot_id,lexie_id) {
   reply <- getURL(apiURL,
                 httpheader = hdr,
                 curl = curl,
-                verbose = TRUE)
+                verbose = debug)
 
   info <- getCurlInfo(curl)
 

@@ -16,6 +16,9 @@
 #' @export
 getMetamot <- function(metamot_id) {
 
+  token <- getOption('sme_token')
+  debug <- getOption('sme_debug')
+
   curl <- getCurlHandle()
 
   # il faut passer Bearer
@@ -28,7 +31,7 @@ getMetamot <- function(metamot_id) {
   reply <- getURL(apiURL,
                httpheader = hdr,
                curl = curl,
-               verbose = TRUE)
+               verbose = debug)
 
   info <- getCurlInfo(curl)
 

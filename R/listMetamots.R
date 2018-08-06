@@ -15,6 +15,10 @@
 #' @author Vincent Terrasi
 #' @export
 listMetamots <- function() {
+
+  token <- getOption('sme_token')
+  debug <- getOption('sme_debug')
+
   curl <- getCurlHandle()
 
   hdr  <- c(Accept="application/json"
@@ -24,7 +28,7 @@ listMetamots <- function() {
   reply <- getURL("https://self.cocon.se/API/metamot",
                 httpheader = hdr,
                 curl = curl,
-                verbose = TRUE)
+                verbose = debug)
 
   info <- getCurlInfo(curl)
 

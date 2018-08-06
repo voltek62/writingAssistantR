@@ -15,6 +15,10 @@
 #' @author Vincent Terrasi
 #' @export
 listLexies <- function(metamot_id) {
+
+  token <- getOption('sme_token')
+  debug <- getOption('sme_debug')
+
   curl <- getCurlHandle()
 
   # il faut passer Bearer
@@ -27,14 +31,14 @@ listLexies <- function(metamot_id) {
   reply <- getURL(apiURL,
                 httpheader = hdr,
                 curl = curl,
-                verbose = TRUE)
+                verbose = debug)
 
   info <- getCurlInfo(curl)
 
   if (info$response.code==200) {
     res <- fromJSON(reply)
     print("ok")
-    retunr(res)
+    return(res)
   } else {
     print("error")
   }

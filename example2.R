@@ -18,4 +18,28 @@ createToken()
 
 checkStatus()
 
+metamots <- listMetamots()
+
+if (metamots$status=="ok") {
+
+  #get first metamot
+  info <- metamots$data[[1]]
+  #print(metamot)
+  metamot_id <- info$mid
+
+  metamot <- getMetamot(metamot_id)
+  expressions <- metamot$data$expressions
+
+  lexies <- listLexies(metamot_id)
+
+  #TODO : extract lexie_id
+  #strtolower
+  #urlencode
+  lexie_id <- URLencode("vps pas cher")
+
+  simulatedLexies <- listSimulatedLexies(metamot_id,lexie_id)
+
+}
+
+
 

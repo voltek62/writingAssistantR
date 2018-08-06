@@ -17,4 +17,4 @@ Imports:
 Suggests:
     devtools (>= 1.12.0),
     testthat
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0

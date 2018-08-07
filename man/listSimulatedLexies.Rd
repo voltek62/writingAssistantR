@@ -6,6 +6,11 @@
 \usage{
 listSimulatedLexies(metamot_id, lexie_id)
 }
+\arguments{
+\item{metamot_id}{The batch id}
+
+\item{lexie_id}{The expression to simulate}
+}
 \value{
 a json with lexies occurences for several text sizes.
 }
@@ -20,7 +25,7 @@ ResCode
 }
 \examples{
 \dontrun{
-status <- listSimulatedLexies(metamot_id,lexie_id)
+lexies <- listSimulatedLexies(metamot_id,"test")
 }
 }
 \author{

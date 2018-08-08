@@ -32,15 +32,13 @@ listSimulatedLexies <- function(metamot_id,lexie_id) {
   lexie_id <- URLencode(lexie_id)
 
   apiURL <- paste0("https://self.cocon.se/API/metamot/",metamot_id,"/simulation/",lexie_id)
-  print(apiURL)
+
   reply <- getURL(apiURL,
                 httpheader = hdr,
                 curl = curl,
                 verbose = debug)
 
   info <- getCurlInfo(curl)
-
-  print(info$response.code)
 
   if (info$response.code==200) {
     res <- fromJSON(reply)

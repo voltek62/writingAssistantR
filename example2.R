@@ -31,15 +31,15 @@ if (metamots$status=="ok") {
   expressions <- metamot$data$expressions
 
   lexies <- listLexies(metamot_id)
-  DF <- lapply(lexies[["data"]][1],rbind)
+  DF_lexies <- lapply(lexies[["data"]],rbind)
 
   #TODO : extract lexie_id
   #strtolower
   #urlencode
-  lexie_id <- "serveur+dédié"
-
+  lexie_id <- "serveur pas cher"
   simulatedLexies <- listSimulatedLexies(metamot_id,lexie_id)
-
+  simulatedLexies3500 <- simulatedLexies[["data"]][["3500"]]
+  DFsimulatedLexies3500 <- lapply(simulatedLexies3500,rbind)
 }
 
 

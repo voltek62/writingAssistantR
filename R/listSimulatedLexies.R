@@ -29,8 +29,10 @@ listSimulatedLexies <- function(metamot_id,lexie_id) {
             ,Authorization=paste("Bearer",token)
   )
 
-  apiURL <- paste0("https://self.cocon.se/API/metamot/",metamot_id,"/lexies/",lexie_id)
+  lexie_id <- URLencode(lexie_id)
 
+  apiURL <- paste0("https://self.cocon.se/API/metamot/",metamot_id,"/simulation/",lexie_id)
+  print(apiURL)
   reply <- getURL(apiURL,
                 httpheader = hdr,
                 curl = curl,

@@ -31,11 +31,12 @@ if (metamots$status=="ok") {
   expressions <- metamot$data$expressions
 
   lexies <- listLexies(metamot_id)
+  DF <- lapply(lexies[["data"]][1],rbind)
 
   #TODO : extract lexie_id
   #strtolower
   #urlencode
-  lexie_id <- URLencode("vps pas cher")
+  lexie_id <- "serveur+dédié"
 
   simulatedLexies <- listSimulatedLexies(metamot_id,lexie_id)
 

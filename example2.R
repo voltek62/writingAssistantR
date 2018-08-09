@@ -31,15 +31,15 @@ if (metamots$status=="ok") {
   expressions <- metamot$data$expressions
 
   lexies <- listLexies(metamot_id)
-  DF_lexies <- lapply(lexies[["data"]],rbind)
 
-  #TODO : extract lexie_id
-  #strtolower
-  #urlencode
-  lexie_id <- "serveur pas cher"
-  simulatedLexies <- listSimulatedLexies(metamot_id,lexie_id)
-  simulatedLexies3500 <- simulatedLexies[["data"]][["3500"]]
-  DFsimulatedLexies3500 <- lapply(simulatedLexies3500,rbind)
+  lexie_id <- "vps low cost"
+  model <- listSimulatedLexies(metamot_id,lexie_id)
+  nbchar <- 500
+  model$countPerfect <- round((model$count*nbchar)/3500)
+
+  #TODO : compare with text
+  #50% : present
+  #25%
 }
 
 

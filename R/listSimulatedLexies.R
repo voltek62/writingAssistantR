@@ -43,8 +43,34 @@ listSimulatedLexies <- function(metamot_id,lexie_id) {
   if (info$response.code==200) {
     res <- fromJSON(reply)
     print("ok")
-    return(res)
+
+    simulatedLexies3500 <- res[["data"]][["3500"]]
+    df <- t(as.data.frame.list(simulatedLexies3500))
+    df <- cbind(rownames(df), data.frame(df, row.names=NULL))
+    colnames(df) <- c("lexies","count")
+    df$lexies <- sub("[.]", " ", df$lexies)
+
+    return(df)
   } else {
     print("error")
   }
+}
+
+
+#' get Simulated Lexies
+#'
+#' @param df
+#' @param nbchar
+#'
+#' @details
+#'
+#' @examples
+#' \dontrun{
+#' lexies <- getSimulatedLexies(df,nbchar)
+#' }
+#' @return a dataframe
+#' @author Vincent Terrasi
+#' @export
+getSimulatedLexies <- function(df,nbchar) {
+
 }

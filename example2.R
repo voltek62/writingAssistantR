@@ -13,6 +13,7 @@
 library(RCurl)
 library(rjson)
 library(XML)
+library(stringr)
 
 createToken()
 
@@ -32,10 +33,25 @@ if (metamots$status=="ok") {
 
   lexies <- listLexies(metamot_id)
 
-  lexie_id <- "vps low cost"
+  lexie_id <- "serveur pas cher"
   model <- listSimulatedLexies(metamot_id,lexie_id)
-  nbchar <- 500
+
+  txt1 <- extractText("https://www.cdiscount.com/informatique/r-serveurs.html", 30, filter=TRUE)
+  # remove extra white space between words inside a character vector
+  txt2 <- gsub("\\s+"," ",txt1)
+
+  # compute countPerfect
+  nbchar <- nchar(txt1)
   model$countPerfect <- round((model$count*nbchar)/3500)
+
+  # search lexies in txt
+  model$foundLexies<-0
+
+  for(i in 1:nrow(model)) {
+    search <- model[i,1]
+    #print()
+    model[i,]$foundLexies <- countExpression(txt1, search)
+  }
 
   #TODO : compare with text
   #50% : present

@@ -1,7 +1,7 @@
 Package: writingAssistantR
 Type: Package
 Title: Create easily your premium guide with R. A Premium Guide is the list of the most important words of your content targeting a specific query. 
-Version: 0.1.0
+Version: 0.1.2
 Author: person("Vincent", "Terrasi", email = "vincent@data-seo.com", role = c("aut", "cre"))
 Maintainer: Vincent Terrasi <vincent@data-seo.com>
 URL: https://github.com/voltek62/writingAssistantR
@@ -13,7 +13,8 @@ Depends:
 Imports:
     RCurl (>= 1.8),
     rjson (>= 0.2),
-    XML (>= 3.8)
+    XML (>= 3.8),
+    stringr (>= 1.3.1)
 Suggests:
     devtools (>= 1.12.0),
     testthat

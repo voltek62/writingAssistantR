@@ -38,7 +38,9 @@ listLexies <- function(metamot_id) {
   if (info$response.code==200) {
     res <- fromJSON(reply)
     print("ok")
-    return(res)
+    df <- as.data.frame(names(res$data))
+    colnames(df) <- "lexies"
+    return(df)
   } else {
     print("error")
   }

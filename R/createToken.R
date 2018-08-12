@@ -76,8 +76,6 @@ createToken <- function() {
 
   info <- getCurlInfo(curl)
 
-  print(info$response.code)
-
   if (info$response.code==201) {
     # return ok if response.code==201
     res <- fromJSON(reply[1])

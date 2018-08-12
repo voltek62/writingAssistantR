@@ -33,7 +33,6 @@ checkStatus <- function() {
 
   if (info$response.code==200) {
     # return ok if response.code==200
-    print("ok")
     return("ok")
   } else {
     # return error if response.code!=200

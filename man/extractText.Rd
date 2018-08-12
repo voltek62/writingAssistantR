@@ -7,7 +7,7 @@
 extractText(url, minchar, filter = FALSE)
 }
 \value{
-Main Text
+A character with the main text
 }
 \description{
 extractText

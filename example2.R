@@ -9,7 +9,7 @@
 #   Test Package:              'Ctrl + Shift + T'
 #   Generate Doc:              roxygen2::roxygenise()
 #   Update Package :           update.packages(ask=FALSE)
-
+library(writingAssistantR)
 library(RCurl)
 library(rjson)
 library(XML)
@@ -24,7 +24,7 @@ metamots <- listMetamots()
 if (metamots$status=="ok") {
 
   #get first metamot
-  info <- metamots$data[[1]]
+  info <- metamots$data[[2]]
   #print(metamot)
   metamot_id <- info$mid
 
@@ -33,25 +33,13 @@ if (metamots$status=="ok") {
 
   lexies <- listLexies(metamot_id)
 
-  lexie_id <- "serveur pas cher"
+  url <- "http://www.wodnews.com"
+  metamot_id <- 2
+  lexie_id <- "crossfit france"
   model <- listSimulatedLexies(metamot_id,lexie_id)
 
-  txt1 <- extractText("https://www.cdiscount.com/informatique/r-serveurs.html", 30, filter=TRUE)
-  # remove extra white space between words inside a character vector
-  txt2 <- gsub("\\s+"," ",txt1)
+  model2 <- scoreLexies(model, lexie_id, url)
 
-  # compute countPerfect
-  nbchar <- nchar(txt1)
-  model$countPerfect <- round((model$count*nbchar)/3500)
-
-  # search lexies in txt
-  model$foundLexies<-0
-
-  for(i in 1:nrow(model)) {
-    search <- model[i,1]
-    #print()
-    model[i,]$foundLexies <- countExpression(txt1, search)
-  }
 
   #TODO : compare with text
   #50% : present

@@ -23,27 +23,26 @@ metamots <- listMetamots()
 
 if (metamots$status=="ok") {
 
-  #get first metamot
   info <- metamots$data[[2]]
-  #print(metamot)
   metamot_id <- info$mid
 
-  metamot <- getMetamot(metamot_id)
-  expressions <- metamot$data$expressions
-
-  lexies <- listLexies(metamot_id)
-
-  url <- "http://www.wodnews.com"
+  url <- "https://fr.wikipedia.org/wiki/CrossFit"
   metamot_id <- 2
   lexie_id <- "crossfit france"
   model <- listSimulatedLexies(metamot_id,lexie_id)
 
   model2 <- scoreLexies(model, lexie_id, url)
 
-
   #TODO : compare with text
   #50% : present
   #25%
+  nblexiesOK  <- sum(model2$foundLexies >0, na.rm=TRUE)
+  nblexiesNOK <- sum(model2$foundLexies==0, na.rm=TRUE)
+
+  nblexiesOKperfect <- sum(model2$foundLexies >0 & model2$foundLexies == model2$countPerfect, na.rm=TRUE)
+  nblexiesOKtoomuch <- sum(model2$foundLexies >0 & model2$foundLexies >= model2$countPerfect, na.rm=TRUE)
+  nblexiesOKtoofew  <- sum(model2$foundLexies >0 & model2$foundLexies <= model2$countPerfect, na.rm=TRUE)
+
 }
 
 

@@ -31,8 +31,8 @@ print("Your guide is ready")
 guide.all <- getGuide(guide_id)
 
 #TODO : check for one URL
-url <- "http://www.wodnews.com"
-scores <- checkGuide(guide_id, url)
+#url <- "http://www.wodnews.com"
+#scores <- checkGuide(guide_id, url)
 
 #TODO : check for 100 URLs
 library(rvest)

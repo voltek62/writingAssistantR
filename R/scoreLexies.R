@@ -30,5 +30,26 @@ scoreLexies <- function(model, lexie_id, url) {
     model[i,]$foundLexies <- countExpression(txt, search)
   }
 
-  return(model)
+  nblexiesOK  <- sum(model$foundLexies >0, na.rm=TRUE)
+  nblexiesNOK <- sum(model$foundLexies==0, na.rm=TRUE)
+
+  # count where there are too many or too few lexies
+  nblexiesOKtoomuch <- sum(model$foundLexies >0 & model$foundLexies >= model$countPerfect, na.rm=TRUE)
+  nblexiesOKtoofew  <- sum(model$foundLexies >0 & model$foundLexies <= model$countPerfect, na.rm=TRUE)
+
+  # get max lexies
+  maxlexies <- length(model$lexies)
+
+  # compute max score, we need all lexies
+  scoremax <- nblexiesOK/maxlexies
+
+  # compute soseo from scoremax, you lose some percentages if you have not all lexies
+  soseo <- scoremax - ((scoremax/2)/maxlexies)*nblexiesOKtoofew
+
+  # compute nseo, you win some percentages if you have got too many repetitions of lexies
+  nseo <- nblexiesOKtoomuch/maxlexies
+
+  scores <- data.frame(soseo=soseo, nseo=nseo)
+
+  return(scores)
 }

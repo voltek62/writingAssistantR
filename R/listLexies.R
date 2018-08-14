@@ -1,5 +1,7 @@
 #' List the lexies of all expressions of a metamot batch
 #'
+#' @param metamot_id Id of the metamot
+#'
 #' @details
 #'
 #' ResCode
@@ -38,8 +40,8 @@ listLexies <- function(metamot_id) {
   if (info$response.code==200) {
     res <- fromJSON(reply)
     print("ok")
-    df <- as.data.frame(names(res$data))
-    colnames(df) <- "lexies"
+    df <- as.data.frame(names(res$data), stringsAsFactors = FALSE)
+    colnames(df) <- "name"
     return(df)
   } else {
     print("error")

@@ -57,20 +57,3 @@ listSimulatedLexies <- function(metamot_id,lexie_id) {
 }
 
 
-#' get Simulated Lexies
-#'
-#' @param df
-#' @param nbchar
-#'
-#' @details
-#'
-#' @examples
-#' \dontrun{
-#' lexies <- getSimulatedLexies(df,nbchar)
-#' }
-#' @return a dataframe
-#' @author Vincent Terrasi
-#' @export
-getSimulatedLexies <- function(df,nbchar) {
-
-}

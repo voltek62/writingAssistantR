@@ -1,4 +1,8 @@
-#' extractText
+#' Util Function for extracting text from URL
+#'
+#' @param url URL
+#' @param minchar Minimal length for a sentence
+#' @param filter Boolean for basic or strict filtering
 #'
 #' @details
 #'
@@ -36,7 +40,9 @@ extractText <- function(url, minchar, filter=FALSE) {
   return(txt)
 }
 
-#' unAccent()
+#' Remove all accents from text
+#'
+#' @param text your text
 #'
 #' @details
 #'
@@ -61,11 +67,14 @@ unAccent <- function(text) {
 
 #' count each expression in a text
 #'
+#' @param text your text
+#' @param searchword your expression
+#'
 #' @details
 #'
 #' @examples
 #' \dontrun{
-#' df <- countExpression(text,searchword)
+#' nb <- countExpression(text,searchword)
 #' }
 #' @return Number of expression
 #' @author Vincent Terrasi

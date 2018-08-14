@@ -1,5 +1,7 @@
 #' List a given metamot batch
 #'
+#' @param metamot_id Id of the metamot
+#'
 #' @details
 #' List overview of the given metamot batch
 #'

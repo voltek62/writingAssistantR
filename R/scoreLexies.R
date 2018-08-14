@@ -1,5 +1,9 @@
 #' scoreLexies
 #'
+#' @param model Table with all lexies
+#' @param lexie_id Name of your lexie
+#' @param url URL of the analysed webpage
+#'
 #' @details
 #'
 #' @examples
@@ -16,10 +20,11 @@ scoreLexies <- function(model, lexie_id, url) {
   txt <- gsub("\\s+"," ",txt)
   # remove special chars
   txt <- gsub("[][!#$%()*,.:;<=>@^_`|~.{}]", "", txt)
+  txt <- gsub("-", " ", txt)
 
-  # compute countPerfect
-  nbchar <- nchar(txt)
-  model$countPerfect <- round((model$count*nbchar)/3500)
+  # compute repartition and count number of words
+  nbword <- stringr::str_count(txt)
+  model$countPerfect <- round((model$count*nbword)/3500)
 
   # search lexies in txt
   model$foundLexies<-0

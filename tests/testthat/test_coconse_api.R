@@ -1,10 +1,6 @@
 
 context("api")
 
-test_that("The Token is ok", {
-  expect_equal(createToken(), "ok")
-})
-
 require(RCurl)
 require(rjson)
 require(XML)
@@ -29,11 +25,11 @@ test_that("The list of Metamots is available", {
 
 info <- metamots$data[[1]]
 metamot_id <- info$mid
+lexies <- listLexies(metamot_id)
 
 test_that("The list of Lexies is available, maybe you need to use the website to create your first metamot", {
-  lexies <- listLexies(metamot_id)
   # must return ok
-  expect_equal(lexies$status, "ok")
+  expect_equal(nrow(lexies)>0, TRUE)
 })
 
 lexie_id <- lexies$name[1]

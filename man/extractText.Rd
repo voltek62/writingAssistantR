@@ -2,15 +2,22 @@
 % Please edit documentation in R/util.R
 \name{extractText}
 \alias{extractText}
-\title{extractText}
+\title{Util Function for extracting text from URL}
 \usage{
 extractText(url, minchar, filter = FALSE)
+}
+\arguments{
+\item{url}{URL}
+
+\item{minchar}{Minimal length for a sentence}
+
+\item{filter}{Boolean for basic or strict filtering}
 }
 \value{
 A character with the main text
 }
 \description{
-extractText
+Util Function for extracting text from URL
 }
 \details{
 

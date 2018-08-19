@@ -6,6 +6,13 @@
 \usage{
 scoreLexies(model, lexie_id, url)
 }
+\arguments{
+\item{model}{Table with all lexies}
+
+\item{lexie_id}{Name of your lexie}
+
+\item{url}{URL of the analysed webpage}
+}
 \description{
 scoreLexies
 }

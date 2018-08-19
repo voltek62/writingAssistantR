@@ -6,6 +6,9 @@
 \usage{
 getMetamot(metamot_id)
 }
+\arguments{
+\item{metamot_id}{Id of the metamot}
+}
 \value{
 a json with metamot details
 }

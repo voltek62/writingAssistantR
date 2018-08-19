@@ -2,15 +2,18 @@
 % Please edit documentation in R/util.R
 \name{unAccent}
 \alias{unAccent}
-\title{unAccent()}
+\title{Remove all accents from text}
 \usage{
 unAccent(text)
+}
+\arguments{
+\item{text}{your text}
 }
 \value{
 a text without accents
 }
 \description{
-unAccent()
+Remove all accents from text
 }
 \details{
 

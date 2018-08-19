@@ -6,6 +6,11 @@
 \usage{
 countExpression(text, searchword)
 }
+\arguments{
+\item{text}{your text}
+
+\item{searchword}{your expression}
+}
 \value{
 Number of expression
 }
@@ -17,7 +22,7 @@ count each expression in a text
 }
 \examples{
 \dontrun{
-df <- countExpression(text,searchword)
+nb <- countExpression(text,searchword)
 }
 }
 \author{

@@ -1,5 +1,5 @@
 
-context("cocon.se")
+context("api")
 
 test_that("The Token is ok", {
   expect_equal(createToken(), "ok")

@@ -10,7 +10,7 @@
 #' \dontrun{
 #' status <- checkStatus()
 #' }
-#' @return a json with ok, the current system load and timestamp
+#' @return "ok" or "error"
 #' @author Vincent Terrasi
 #' @export
 checkStatus <- function() {

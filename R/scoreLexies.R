@@ -1,4 +1,4 @@
-#' scoreLexies
+#' Compute a score from your lexies and a specific URL
 #'
 #' @param model Table with all lexies
 #' @param lexie_id Name of your lexie
@@ -6,11 +6,15 @@
 #'
 #' @details
 #'
+#'
 #' @examples
 #' \dontrun{
 #'
 #' }
-#' @return
+#' @return two scores
+#' soseo : 100% for a text-optimized to the maximum of the normal range
+#' nseo : SEO risk score
+#'
 #' @author Vincent Terrasi
 #' @export
 scoreLexies <- function(model, lexie_id, url) {

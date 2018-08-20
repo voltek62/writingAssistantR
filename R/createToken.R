@@ -10,7 +10,7 @@
 #' \dontrun{
 #' createToken()
 #' }
-#' @return a Token, valid for 2 hours
+#' @return "ok" or "error" your token is valid for 2 hours and stored in local
 #' @author Vincent Terrasi
 #' @export
 createToken <- function() {

@@ -2,7 +2,7 @@
 #'
 #' @details
 #'
-#' ResCode
+#' not documented : experimental
 #'
 #'
 #' @examples

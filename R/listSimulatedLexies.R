@@ -14,7 +14,7 @@
 #' \dontrun{
 #' lexies <- listSimulatedLexies(metamot_id,"test")
 #' }
-#' @return a json with lexies occurences for several text sizes.
+#' @return a json with lexies occurences for text with 3500 words.
 #' @author Vincent Terrasi
 #' @export
 listSimulatedLexies <- function(metamot_id,lexie_id) {

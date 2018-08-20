@@ -13,7 +13,7 @@
 #' \dontrun{
 #' status <- listLexies(metamot_id)
 #' }
-#' @return a json with metamot lexies
+#' @return a dataframe with all metamot lexies
 #' @author Vincent Terrasi
 #' @export
 listLexies <- function(metamot_id) {

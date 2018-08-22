@@ -3,6 +3,9 @@ ytg_configuration.txt
 sme_configuration.txt
 cookies.txt
 
+# Demo
+demo.R
+
 # History files
 .Rhistory
 .Rapp.history

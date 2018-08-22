@@ -27,13 +27,12 @@ if (metamots$status=="ok") {
   metamot_id <- info$mid
 
   lexies <- listLexies(metamot_id)
-  lexie_id <- lexies$name[1]
-
-  url <- "https://www.lequipe.fr/Ilosport/Fitness/Actualites/Dossier-crossfit-1-2-definition-avantages-risques-et-limites-du-crossfit/778028"
+  lexie_id <- lexies$name[2]
 
   model <- listSimulatedLexies(metamot_id,lexie_id)
 
-  scores <- scoreLexies(model, lexie_id, url)
+  url <- "https://frenchthrowdown.com"
+  scores <- scoreLexies(model, url)
 
   library(formattable)
   percent(scores)

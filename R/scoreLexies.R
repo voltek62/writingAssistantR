@@ -1,7 +1,6 @@
 #' Compute a score from your lexies and a specific URL
 #'
 #' @param model Table with all lexies
-#' @param lexie_id Name of your lexie
 #' @param url URL of the analysed webpage
 #'
 #' @details
@@ -17,7 +16,7 @@
 #'
 #' @author Vincent Terrasi
 #' @export
-scoreLexies <- function(model, lexie_id, url) {
+scoreLexies <- function(model, url) {
 
   txt <- extractText(url, 10, filter=TRUE)
   # remove extra white space between words inside a character vector
